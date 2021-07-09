@@ -17,18 +17,15 @@ sudo yum clean metadata
 sudo yum install php-{cgi,curl,mbstring,gd,mysqlnd,gettext,json,xml,fpm,intl,zip} -y
 
 # Download wordpress
-cd
 sudo wget https://wordpress.org/latest.tar.gz
 sudo tar -xzf latest.tar.gz
-cd wordpress
-sudo cp wp-config-sample.php wp-config.php
-sudo sed -i 's/database_name_here/wordpress/' wp-config.php
-sudo sed -i 's/username_here/admin/' wp-config.php
-sudo sed -i 's/password_here/Seletiva#39/' wp-config.php
-sudo sed -i 's/localhost/${aws_db_instance.wordpress.endpoint}' wp-config.php
 
-sudo cp -r wordpress/* /var/www/html/
+sudo cp /wordpress/wp-config-sample.php /wordpress/wp-config.php
+sudo sed -i 's/database_name_here/wordpress/' /wordpress/wp-config.php
+sudo sed -i 's/username_here/admin/' /wordpress/wp-config.php
+sudo sed -i 's/password_here/Seletiva#39/' /wordpress/wp-config.php
+sudo sed -i 's/localhost/${aws_db_instance.wordpress.endpoint}/' /wordpress/wp-config.php
 
-# Create wordpress configuration file
-cd /var/www/html
-sudo cp wp-config-sample.php wp-config.php
+sudo cp -r /wordpress/* /var/www/html/
+
+sudo service httpd restart
