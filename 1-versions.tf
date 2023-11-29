@@ -1,5 +1,5 @@
 terraform {
-  required_version = "~> 0.14"
+#  required_version = "~> 0.14"
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -7,7 +7,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "terraform-testproject-cloud"
+    bucket = "terraform-testproject-cloud2"
     key    = "terraform.tfstate"
     region = "us-east-1"
   }
