@@ -7,7 +7,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "terraform-testproject-cloud2"
+    bucket = "batatinhasenai"
     key    = "terraform.tfstate"
     region = "us-east-1"
   }
